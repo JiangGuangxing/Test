@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.jgx.dao.VeterinaryMapper" >
+  <resultMap id="BaseResultMap" type="org.jgx.bo.Veterinary" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="occupation" property="occupation" jdbcType="BIGINT" />
+    <result column="service_area_id" property="serviceAreaId" jdbcType="BIGINT" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="pic_id" property="picId" jdbcType="BIGINT" />
+    <result column="auditType" property="audittype" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="aduit_time" property="aduitTime" jdbcType="TIMESTAMP" />
+    <result column="aduit_user_id" property="aduitUserId" jdbcType="BIGINT" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="cancle_time" property="cancleTime" jdbcType="TIMESTAMP" />
+    <result column="sys_id" property="sysId" jdbcType="BIGINT" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, name, occupation, service_area_id, company_name, phone, qq, pic_id, 
+    auditType, create_time, update_time, aduit_time, aduit_user_id, source, cancle_time, 
+    sys_id, reason
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhubing_veterinary_identify
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from zhubing_veterinary_identify
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.jgx.bo.Veterinary" >
+    insert into zhubing_veterinary_identify (id, user_id, name, 
+      occupation, service_area_id, company_name, 
+      phone, qq, pic_id, auditType, 
+      create_time, update_time, aduit_time, 
+      aduit_user_id, source, cancle_time, 
+      sys_id, reason)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{occupation,jdbcType=BIGINT}, #{serviceAreaId,jdbcType=BIGINT}, #{companyName,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{picId,jdbcType=BIGINT}, #{audittype,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{aduitTime,jdbcType=TIMESTAMP}, 
+      #{aduitUserId,jdbcType=BIGINT}, #{source,jdbcType=VARCHAR}, #{cancleTime,jdbcType=TIMESTAMP}, 
+      #{sysId,jdbcType=BIGINT}, #{reason,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.jgx.bo.Veterinary" >
+    insert into zhubing_veterinary_identify
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="occupation != null" >
+        occupation,
+      </if>
+      <if test="serviceAreaId != null" >
+        service_area_id,
+      </if>
+      <if test="companyName != null" >
+        company_name,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="picId != null" >
+        pic_id,
+      </if>
+      <if test="audittype != null" >
+        auditType,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="aduitTime != null" >
+        aduit_time,
+      </if>
+      <if test="aduitUserId != null" >
+        aduit_user_id,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="cancleTime != null" >
+        cancle_time,
+      </if>
+      <if test="sysId != null" >
+        sys_id,
+      </if>
+      <if test="reason != null" >
+        reason,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null" >
+        #{occupation,jdbcType=BIGINT},
+      </if>
+      <if test="serviceAreaId != null" >
+        #{serviceAreaId,jdbcType=BIGINT},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="picId != null" >
+        #{picId,jdbcType=BIGINT},
+      </if>
+      <if test="audittype != null" >
+        #{audittype,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aduitTime != null" >
+        #{aduitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aduitUserId != null" >
+        #{aduitUserId,jdbcType=BIGINT},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="cancleTime != null" >
+        #{cancleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysId != null" >
+        #{sysId,jdbcType=BIGINT},
+      </if>
+      <if test="reason != null" >
+        #{reason,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.jgx.bo.Veterinary" >
+    update zhubing_veterinary_identify
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null" >
+        occupation = #{occupation,jdbcType=BIGINT},
+      </if>
+      <if test="serviceAreaId != null" >
+        service_area_id = #{serviceAreaId,jdbcType=BIGINT},
+      </if>
+      <if test="companyName != null" >
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="picId != null" >
+        pic_id = #{picId,jdbcType=BIGINT},
+      </if>
+      <if test="audittype != null" >
+        auditType = #{audittype,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aduitTime != null" >
+        aduit_time = #{aduitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aduitUserId != null" >
+        aduit_user_id = #{aduitUserId,jdbcType=BIGINT},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="cancleTime != null" >
+        cancle_time = #{cancleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysId != null" >
+        sys_id = #{sysId,jdbcType=BIGINT},
+      </if>
+      <if test="reason != null" >
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.jgx.bo.Veterinary" >
+    update zhubing_veterinary_identify
+    set user_id = #{userId,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      occupation = #{occupation,jdbcType=BIGINT},
+      service_area_id = #{serviceAreaId,jdbcType=BIGINT},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      pic_id = #{picId,jdbcType=BIGINT},
+      auditType = #{audittype,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      aduit_time = #{aduitTime,jdbcType=TIMESTAMP},
+      aduit_user_id = #{aduitUserId,jdbcType=BIGINT},
+      source = #{source,jdbcType=VARCHAR},
+      cancle_time = #{cancleTime,jdbcType=TIMESTAMP},
+      sys_id = #{sysId,jdbcType=BIGINT},
+      reason = #{reason,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

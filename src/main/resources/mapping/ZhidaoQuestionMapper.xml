@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.jgx.dao.ZhidaoQuestionDao" >
+  <resultMap id="BaseResultMap" type="org.jgx.bo.ZhidaoQuestion" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="zhubing_question_id" property="zhubingQuestionId" jdbcType="BIGINT" />
+    <result column="creat_time" property="creatTime" jdbcType="TIMESTAMP" />
+    <result column="zhidao_user_name" property="zhidaoUserName" jdbcType="VARCHAR" />
+    <result column="zhidao_user_id" property="zhidaoUserId" jdbcType="BIGINT" />
+    <result column="zhidao_question_id" property="zhidaoQuestionId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, zhubing_question_id, creat_time, zhidao_user_name, zhidao_user_id, zhidao_question_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from zhubing_zhidao_question
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from zhubing_zhidao_question
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.jgx.bo.ZhidaoQuestion" >
+    insert into zhubing_zhidao_question (id, zhubing_question_id, creat_time, 
+      zhidao_user_name, zhidao_user_id, zhidao_question_id
+      )
+    values (#{id,jdbcType=BIGINT}, #{zhubingQuestionId,jdbcType=BIGINT}, #{creatTime,jdbcType=TIMESTAMP}, 
+      #{zhidaoUserName,jdbcType=VARCHAR}, #{zhidaoUserId,jdbcType=BIGINT}, #{zhidaoQuestionId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.jgx.bo.ZhidaoQuestion" >
+    insert into zhubing_zhidao_question
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="zhubingQuestionId != null" >
+        zhubing_question_id,
+      </if>
+      <if test="creatTime != null" >
+        creat_time,
+      </if>
+      <if test="zhidaoUserName != null" >
+        zhidao_user_name,
+      </if>
+      <if test="zhidaoUserId != null" >
+        zhidao_user_id,
+      </if>
+      <if test="zhidaoQuestionId != null" >
+        zhidao_question_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="zhubingQuestionId != null" >
+        #{zhubingQuestionId,jdbcType=BIGINT},
+      </if>
+      <if test="creatTime != null" >
+        #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zhidaoUserName != null" >
+        #{zhidaoUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="zhidaoUserId != null" >
+        #{zhidaoUserId,jdbcType=BIGINT},
+      </if>
+      <if test="zhidaoQuestionId != null" >
+        #{zhidaoQuestionId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.jgx.bo.ZhidaoQuestion" >
+    update zhubing_zhidao_question
+    <set >
+      <if test="zhubingQuestionId != null" >
+        zhubing_question_id = #{zhubingQuestionId,jdbcType=BIGINT},
+      </if>
+      <if test="creatTime != null" >
+        creat_time = #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zhidaoUserName != null" >
+        zhidao_user_name = #{zhidaoUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="zhidaoUserId != null" >
+        zhidao_user_id = #{zhidaoUserId,jdbcType=BIGINT},
+      </if>
+      <if test="zhidaoQuestionId != null" >
+        zhidao_question_id = #{zhidaoQuestionId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.jgx.bo.ZhidaoQuestion" >
+    update zhubing_zhidao_question
+    set zhubing_question_id = #{zhubingQuestionId,jdbcType=BIGINT},
+      creat_time = #{creatTime,jdbcType=TIMESTAMP},
+      zhidao_user_name = #{zhidaoUserName,jdbcType=VARCHAR},
+      zhidao_user_id = #{zhidaoUserId,jdbcType=BIGINT},
+      zhidao_question_id = #{zhidaoQuestionId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
