@@ -1,4 +1,4 @@
-group 'org.jgx'
+group 'test.jgx'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'//java插件
