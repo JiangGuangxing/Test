@@ -1,0 +1,60 @@
+{
+    "button": [
+		{
+            "name": "菜单一",
+            "sub_button": [
+                {
+                    "type": "click",
+                    "name": "菜单一一",
+                    "url": "http://www.baidu.com"
+                },
+				{
+					"type": "click",
+					"name": "菜单一二",
+					"url": "http://www.baidu.com"
+				},
+				{
+                    "type": "click",
+                    "name": "菜单一三",
+                    "url": "http://www.baidu.com"
+                },
+				{
+                    "type": "click",
+                    "name": "菜单一四",
+                    "url": "http://www.baidu.com"
+                }
+            ]
+        },
+		{
+            "name": "菜单二",
+            "sub_button": [
+                {
+                    "type": "click",
+                    "name": "菜单二一",
+                    "url": "http://www.baidu.com"
+                },
+                {
+                    "type": "click",
+                    "name": "菜单二二",
+                    "url": "http://www.baidu.com"
+                }
+            ]
+        },
+		{
+            "name": "菜单三",
+            "sub_button": [
+				{
+                    "type": "click",
+                    "name": "菜单三一",
+                    "url": "http://www.baidu.com"
+                },
+				{
+                     "type": "click",
+                     "name": "菜单三二",
+                     "url": "http://www.baidu.com"
+
+				}
+			]
+		}
+    ]
+}
